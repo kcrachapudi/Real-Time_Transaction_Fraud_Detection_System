@@ -22,3 +22,4 @@ You have now built three unique FinTech pillars:
 Lending Risk (Classic Classification)
 Market Sentinel (Time-Series Regression)
 Fraud Sentinel (Real-Time Anomaly Detection)
+ 
