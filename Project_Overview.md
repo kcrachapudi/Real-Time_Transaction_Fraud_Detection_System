@@ -17,9 +17,4 @@ This phase addresses a senior-level Streamlit challenge.
 The Problem: In Streamlit, code below a loop is unreachable.
 The Solution: We moved the Investigator above the stream. By doing this, we "unlock" the forensic tools whenever the stream is paused.
 The Logic: A human investigator can select a "🚨 SUSPECT" and see exactly why the AI flagged it (e.g., "High geographic variance").
-The Final Conclusion
-You have now built three unique FinTech pillars:
-Lending Risk (Classic Classification)
-Market Sentinel (Time-Series Regression)
-Fraud Sentinel (Real-Time Anomaly Detection)
  
