@@ -25,3 +25,30 @@ def create_transaction():
         "Distance_from_Home": round(random.uniform(0, 100), 2),
         "Is_Anomaly": is_anomaly # We use this to check our AI later
     }
+
+from sklearn.ensemble import IsolationForest
+
+def train_anomaly_detector(df):
+    """
+    Learns the 'normal' patterns of the stream.
+    """
+    # We train on Amount, Hour, and Distance
+    features = ['Amount', 'Hour', 'Distance_from_Home']
+    
+    # contamination=0.03 means we expect roughly 3% of data to be 'weird'
+    model = IsolationForest(contamination=0.03, random_state=42)
+    model.fit(df[features])
+    
+    return model
+
+def predict_anomaly(model, tx_dict):
+    """
+    Scores a single transaction. 
+    Returns -1 for Anomaly, 1 for Normal.
+    """
+    features = ['Amount', 'Hour', 'Distance_from_Home']
+    df_tx = pd.DataFrame([tx_dict])[features]
+    
+    # Predict returns -1 (anomaly) or 1 (normal)
+    prediction = model.predict(df_tx)
+    return prediction[0]
